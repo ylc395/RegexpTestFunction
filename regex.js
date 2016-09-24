@@ -185,6 +185,7 @@ function testWithNFA(text, regexp) {
 
     for(let char of text) {
         let match = pc.filter(vertex => regexp[vertex] === char || regexp[vertex] === '.').map(v => v + 1);
+        pc = [];
         for(let vertex of match) {
             for(let i = 0; i < lengthOfPattern; i ++) {
                 if(isReachable(vertex, i)) pc.push(i);
